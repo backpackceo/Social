@@ -5,6 +5,7 @@ import { BackendApiService, TutorialStatus } from "../../backend-api.service";
 import { SwalHelper } from "../../../lib/helpers/swal-helper";
 import { AppRoutingModule, RouteNames } from "../../app-routing.module";
 import { Title } from "@angular/platform-browser";
+import { environment } from "src/environments/environment";
 
 export type ProfileUpdates = {
   usernameUpdate: string;
@@ -57,7 +58,7 @@ export class UpdateProfileComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this._updateFormBasedOnLoggedInUser();
-    this.titleService.setTitle("Update Profile - BitClout");
+    this.titleService.setTitle(`Update Profile - ${environment.node.name}`);
   }
 
   // This is used to handle any changes to the loggedInUser elegantly.
@@ -178,7 +179,7 @@ export class UpdateProfileComponent implements OnInit, OnChanges {
       1.25 * 100 * 100 /*NewStakeMultipleBasisPoints*/,
       false /*IsHidden*/,
       // End params
-      this.globalVars.feeRateBitCloutPerKB * 1e9 /*MinFeeRateNanosPerKB*/
+      this.globalVars.feeRateDeSoPerKB * 1e9 /*MinFeeRateNanosPerKB*/
     );
   }
 
@@ -218,12 +219,12 @@ export class UpdateProfileComponent implements OnInit, OnChanges {
             confirmButton: "btn btn-light",
             cancelButton: "btn btn-light no",
           },
-          confirmButtonText: lowBalance ? "Buy $CLOUT" : null,
+          confirmButtonText: lowBalance ? "Buy $DESO" : null,
           cancelButtonText: lowBalance ? "Later" : null,
           showCancelButton: !!lowBalance,
         }).then((res) => {
           if (lowBalance && res.isConfirmed) {
-            this.router.navigate([RouteNames.BUY_BITCLOUT], { queryParamsHandling: "merge" });
+            this.router.navigate([RouteNames.BUY_DESO], { queryParamsHandling: "merge" });
           }
         });
       }
