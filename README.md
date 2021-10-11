@@ -2,7 +2,7 @@
 
 # About BitFlare
 
-[![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/devclout/BitFlare)
+[![Deploy on Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/desodev/BitFlare)
 
 BitFlare is an easy frontend for BitClout that you can host on CloudFlare Pages.
 
